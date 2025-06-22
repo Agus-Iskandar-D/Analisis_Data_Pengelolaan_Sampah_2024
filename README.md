@@ -12,7 +12,7 @@ Task: Data Analysis with Python
 
 -----
 
-![waste management]()
+![waste management](https://github.com/Agus-Iskandar-D/Analisis_Data_Pengelolaan_Sampah_2024/blob/main/pengelolaan%20sampah.png)
 
 ## 📖 Pendahuluan
 
@@ -97,14 +97,44 @@ Secara keseluruhan, Indonesia bertekad untuk mencapai pengelolaan sampah yang le
 
 Data yang digunakan merupakan data pengelolaan sampah tahun 2024 yang didapat dari Sistem Informasi Pengelolaan Sampah Nasional (SIPSN). Adapun data yag digunakan mencakup data komposisi sumber sampah, data komposisi jenis sampah, data capaian pengelolaan sampah, dan data timbulan sampah dari 317 kabupaten/kota di Indonesia.
 
-### Setup Environtment
+### Setup Environtment dan Librari
 
-Environment yang digunakan menggunakan conda dengan direktori disimpan direktori EnergiHijau2025 dengan conda energi_hijau.
+Environment yang digunakan menggunakan conda dengan direktori disimpan direktori EnergiHijau2025 dengan conda energi_hijau. Librari yang digunakan mencakup pandas, numpy, matplotlib, seaborn, dna jupyter
 
 ### Query Analisis Data
-Query merupakan pertanyaan-pertanyaan yang ingin dijawab dengan analisis yang dilakukan menggunakan python
+Query merupakan pertanyaan-pertanyaan yang ingin dijawab dengan analisis yang dilakukan menggunakan python.
 
-#### Query 1: Mengecek Data Kompoisi Jenis Sampah Per Kabupaten/Kota
+#### Query 1: Mengecek Capaian Pengurangan Sampah
+
+Tujuan: Mengecek apakah pengurangan sampah memenuhi target pengurangan sampah sebesar 30%
+
+Konsep: If-else, Pandas untuk CSV
+
+Output: Status capaian pengurangan sampah
+
+```
+
+import pandas as pd
+
+df = pd.read_csv('C:/EnergiHijau2025/Data_Capaian_Pengelolaan_Sampah.csv')
+
+target_pengurangan = 30
+
+for index, row in df.iterrows():
+    pengurangan = row['%Pengurangan Sampah(B/A)']
+    kabupaten = row['Kabupaten/Kota']
+    if pengurangan > target_pengurangan:
+        print(f"{kabupaten} memenuhi target pengurangan sebesar {pengurangan} %")
+    else:
+        print(f"{kabupaten} BELUM memenuhi target pengurangan sebesar {pengurangan} %")
+
+```
+
+Output:
+
+![pengurangans sampah](https://github.com/Agus-Iskandar-D/Analisis_Data_Pengelolaan_Sampah_2024/blob/main/capaian%20pengurangan%20sampah.png)
+
+
 #### Query 2: Mengecek Data Komposisi Sumber Sampah per Kabupaten/Kota
 #### Query 3: Mengecek Data Komposisi Capaian Pengelolaan Sampah
 
