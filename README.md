@@ -133,6 +133,42 @@ Output:
 ![pengurangans sampah](https://github.com/Agus-Iskandar-D/Analisis_Data_Pengelolaan_Sampah_2024/blob/main/capaian%20pengurangan%20sampah.png)
 
 
-#### Query 2: Mengecek Data Komposisi Sumber Sampah per Kabupaten/Kota
-#### Query 3: Mengecek Data Komposisi Capaian Pengelolaan Sampah
+#### QUERY 13: Bar Chart Capaian Pengurangan Sampah
 
+Tujuan: Menvisualisasikan pengurangan sampah dalam Bar Chart
+
+Konsep: Metplotlib, dictionary, Pandas untuk Baca CSV
+
+Output: Bar Chart pengurangan sampah dengan target pengurangan
+
+```
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def plot_pengurangan (pengurangan_dict):
+    kabupaten = list(pengurangan_dict.keys())
+    pengurangan = [data['pengurangan'] for data in pengurangan_dict.values()]
+    plt.bar(kabupaten, pengurangan, color = 'green')
+    plt.xlabel('Kabupaten/Kota')
+    plt.ylabel('Capaian Pengurangan Sampah (%)')
+    plt.title('Capaian Pengurangan Sampah 2024')
+    plt.axhline(y=30, color = 'red', linestyle = '--', label = 'Target Pengurangan Sampah (%)')
+    plt.legend()
+    plt.xticks(rotation = 90)
+    plt.tight_layout()
+    plt.show()
+
+df = pd.read_csv('C:/EnergiHijau2025/Data_Capaian_Pengelolaan_Sampah.csv')
+pengurangan_dict = {}
+for index, row in df.iterrows():
+    kabupaten = row['Kabupaten/Kota']
+    pengurangan_dict[kabupaten] = {'pengurangan': row['%Pengurangan Sampah(B/A)']}
+
+plot_pengurangan(pengurangan_dict)
+
+```
+
+Output:
+
+![pengurangan sampah chart bar](https://github.com/Agus-Iskandar-D/Analisis_Data_Pengelolaan_Sampah_2024/blob/main/output%20pengurangan%20sampah.png)
