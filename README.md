@@ -8,9 +8,7 @@ No: 09.009.DB2025
 
 Task: Data Analysis with Python
 
----
-
------
+----
 
 ![waste management](https://github.com/Agus-Iskandar-D/Analisis_Data_Pengelolaan_Sampah_2024/blob/main/pengelolaan%20sampah.png)
 
