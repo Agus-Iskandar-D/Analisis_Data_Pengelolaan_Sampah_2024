@@ -249,7 +249,7 @@ Output:
 
 ### 📝 Kesimpulan
 
-1. Hanya beberapa Kabupaten/Kota yang sudah memenuhi target penanganan dan pengurangan sampah di 2025
+1. Hanya beberapa Kabupaten/Kota yang sudah memenuhi target penanganan dan pengurangan sampah di 2024
 2. Kompisisi jenis sampah terbesar berasal dari makanan yang merupakan sampah organik
 
 ### 🌱 Saran
