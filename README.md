@@ -100,7 +100,7 @@ Data yang digunakan merupakan data pengelolaan sampah tahun 2024 yang didapat da
 Environment yang digunakan menggunakan conda dengan direktori disimpan direktori EnergiHijau2025 dengan conda energi_hijau. Librari yang digunakan mencakup pandas, numpy, matplotlib, seaborn, dan jupyter
 
 ### Query Analisis Data
-Query merupakan pertanyaan-pertanyaan yang ingin dijawab dengan analisis yang dilakukan menggunakan python.
+Query merupakan pertanyaan-pertanyaan yang ingin dijawab dengan analisis yang dilakukan menggunakan python. Query yang ditampilkan merupakan sample query, karen kodingnya mewakili query yang lainnya.
 
 #### Query 1: Mengecek Capaian Pengurangan Sampah
 
