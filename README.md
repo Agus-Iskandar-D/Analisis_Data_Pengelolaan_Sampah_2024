@@ -97,7 +97,7 @@ Data yang digunakan merupakan data pengelolaan sampah tahun 2024 yang didapat da
 
 ### Setup Environtment dan Librari
 
-Environment yang digunakan menggunakan conda dengan direktori disimpan direktori EnergiHijau2025 dengan conda energi_hijau. Librari yang digunakan mencakup pandas, numpy, matplotlib, seaborn, dna jupyter
+Environment yang digunakan menggunakan conda dengan direktori disimpan direktori EnergiHijau2025 dengan conda energi_hijau. Librari yang digunakan mencakup pandas, numpy, matplotlib, seaborn, dan jupyter
 
 ### Query Analisis Data
 Query merupakan pertanyaan-pertanyaan yang ingin dijawab dengan analisis yang dilakukan menggunakan python.
@@ -172,3 +172,90 @@ plot_pengurangan(pengurangan_dict)
 Output:
 
 ![pengurangan sampah chart bar](https://github.com/Agus-Iskandar-D/Analisis_Data_Pengelolaan_Sampah_2024/blob/main/output%20pengurangan%20sampah.png)
+
+#### QUERY 15: Pie Chart Komposisi Jenis Sampah
+
+Tujuan: Menvisualisasikan Proporsi jenis sampah dari CSV
+
+Konsep: Matplotlib, Dictionary, Pandas untuk Baca CSV
+
+Output: Pie Chart proporsi jenis sampah
+
+```
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def plot_jenis(data_df):
+    
+   
+    Sisa_Makanan = data_df['Sisa Makanan (%)'].mean()
+    Kayu_Ranting = data_df['Kayu-Ranting (%)'].mean()
+    Kertas_Karton = data_df['Kertas-Karton (%)'].mean() 
+    Plastik = data_df['Plastik(%)'].mean()
+    Logam = data_df['Logam(%)'].mean()
+    Kain = data_df['Kain(%)'].mean()
+    Karet_Kulit = data_df['Karet- Kulit (%)'].mean()
+    Kaca = data_df['Kaca(%)'].mean()
+    Lainnya = data_df['Lainnya(%)'].mean()
+
+    labels = [
+        'Sisa Makanan', 'Kayu Ranting', 'Kertas Karton', 'Plastik',
+        'Logam', 'Kain', 'Karet Kulit', 'Kaca', 'Lainnya'
+    ]
+    sizes = [
+        Sisa_Makanan, Kayu_Ranting, Kertas_Karton, Plastik,
+        Logam, Kain, Karet_Kulit, Kaca, Lainnya
+    ]
+
+    colors = [
+        '#FF6347', '#3CB371', '#ADD8E6', '#FFD700', '#B0C4DE',
+        '#DA70D6', '#FF8C00', '#87CEEB', '#6A5ACD'
+    ] 
+
+    plt.figure(figsize=(10, 10))
+    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90,
+            pctdistance=0.85, wedgeprops={'edgecolor': 'black'}) 
+
+    
+    center_circle = plt.Circle((0, 0), 0.70, fc='white')
+    fig = plt.gcf()
+    fig.gca().add_artist(center_circle)
+
+    plt.title('Komposisi Jenis Sampah 2024', fontsize=16)
+    plt.axis('equal') 
+    plt.show()
+
+# --- Main Part of the Script ---
+try:
+    df = pd.read_csv('C:/EnergiHijau2025/Data_Komposisi_Jenis_Sampah.csv')
+
+    plot_jenis(df)
+
+except FileNotFoundError:
+    print("Error: File 'C:/EnergiHijau2025/Data_Komposisi_Jenis_Sampah.csv' tidak ditemukan.")
+except KeyError as e:
+    print(f"Error: Kolom yang dibutuhkan tidak ditemukan di CSV. Pastikan nama kolom sudah benar. Missing column: {e}")
+except Exception as e:
+    print(f"Terjadi kesalahan: {e}")
+
+```
+
+Output:
+
+![Komposisi Jenis Sampah](https://github.com/Agus-Iskandar-D/Analisis_Data_Pengelolaan_Sampah_2024/blob/main/output%20komposisi%20jenis%20sampah.png)
+
+## 💡 Kesimpulan dan Saran
+
+### 📝 Kesimpulan
+
+1. Hanya beberapa Kabupaten/Kota yang sudah memenuhi target penanganan dan pengurangan sampah di 2025
+2. Kompisisi jenis sampah terbesar berasal dari makanan yang merupakan sampah organik
+
+### 🌱 Saran
+
+1. Adanya kebijakan yang mengikat kepada masyarakat untuk buang sampah pada tempatnya dengan sudah dipilah sesuai kategori jenis sampah
+2. Adanya data hasil daur ulang dan pengurangan sampah, baik yang ubah menjadi kompos, bioenergi, atau menjadi bahan baku lainnya, seperti RDF, Brick, maupun diinsenirasi (bakar)
+3. Edukasi kepada masyarakat terkait sampah, dari mulai jenis sampah dan memilah sampah. Masyarakat juga bisa dilatih untuk mengolah sampah organik sendiri, minimal dengan membuat biopori.
+
+ © ETL Batch 9 
